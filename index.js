@@ -27,19 +27,18 @@ app.get('/', (req, res) => {
 
 // Handle get requests
 app.get('/form/', (req, res) => {
-    var getParams = res.query;
-    res.render('form', getParams);
+    var getParams = req.query;
+    res.render('echo', getParams);
 });
 
 // Handle post requests
 app.post('/form/', (req, res) => {
     var postParams = req.body;
-    res.render('form', postParams);
+    res.render('echo', postParams);
 });
 
 // Templating with EJS
 app.get('/template', function(req, res) {
-    console.log(req.body.name);
     res.render('template', {helloworld: 'Hello, World!'});
 });
 
