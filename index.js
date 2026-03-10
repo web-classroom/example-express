@@ -7,18 +7,23 @@ app.set('view engine', 'ejs');
 
 // The `use` method is used to define a middleware. That is, a function that is executed before the request is handled.
 // Middleware functions are executed in the order they are defined.
-// The express.urlencoded() middleware is used to decode the parameters sent in the body of a POST request. Hence, any POST request that contains parameters will have the parameters decoded and added to the request object by this middleware.
+// The express.urlencoded() middleware is used to decode the parameters sent in the body of a POST request. Hence, any
+// POST request that contains parameters will have the parameters decoded and added to the request object by this middleware.
 app.use(express.urlencoded())
 
-// The express.json() middleware is used to decode the body of a POST request. Hence, any POST request that contains a JSON body will have its body decoded and added to the request object by this middleware.
+// The express.json() middleware is used to decode the body of a POST request. Hence, any POST request that contains a
+// JSON body will have its body decoded and added to the request object by this middleware.
 app.use(express.json())
 
-// The express.static() middleware is used to serve static files. In this case, it means that any file in the "public" directory will be served directly by the server, and the next middlewares will not be executed.
+// The express.static() middleware is used to serve static files. In this case, it means that any file in the "public"
+// directory will be served directly by the server, and the next middlewares will not be executed.
 app.use(express.static("public"));
 
 // One can also define their own middleware functions.
 // req and res are the request and response objects, respectively, and may be modified by the middleware.
-// next is a function that must be called in order to pass control to the next middleware function. If you don't reply to the request in this middleware, you should call next() to pass control to the next middleware. Not calling next() will mean the client will never receive a response.
+// next is a function that must be called in order to pass control to the next middleware function. If you don't reply
+// to the request in this middleware, you should call next() to pass control to the next middleware.
+// Not calling next() will mean the client will never receive a response.
 app.use('/form/', (req, res, next) => {
     // here any shared behavior for the /form/ path
     console.log("In middleware for /form/ path")
