@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <% include partial %>
+      <!-- include partial template -->
+      <%- include('partial') %>
     </head>
     <body>
-        <h1><%= helloworld %></h1>
+      <!-- lookup helloworld attribute in object -->
+      <h1>Templating with EJS</h1>
+      <p><%= helloworld %></p>
+      <%- include('footer') %>
     </body>
 </html>

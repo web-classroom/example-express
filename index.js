@@ -13,7 +13,7 @@ app.use(express.urlencoded())
 // The express.json() middleware is used to decode the body of a POST request. Hence, any POST request that contains a JSON body will have its body decoded and added to the request object by this middleware.
 app.use(express.json())
 
-// The express.stati() middleware is used to serve static files. In this case, it means that any file in the "public" directory will be served directly by the server, and the next middlewares will not be executed.
+// The express.static() middleware is used to serve static files. In this case, it means that any file in the "public" directory will be served directly by the server, and the next middlewares will not be executed.
 app.use(express.static("public"));
 
 // One can also define their own middleware functions.
@@ -51,7 +51,7 @@ app.post('/form/', (req, res) => {
 
 // Example of templating with EJS
 app.get('/template', function(req, res) {
-    res.render('template', {helloworld: 'Hello, Worldy!'});
+    res.render('template', {helloworld: 'Hello, World!'});
 });
 
 // Start the server. The callback is executed when the server is ready to receive requests.
